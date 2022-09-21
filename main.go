@@ -4,11 +4,15 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"os"
 	"strconv"
 )
 
 func main() {
-	port := ":9000"
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "9000" // Default port if not specified
+	}
 	handler := func(w http.ResponseWriter, req *http.Request) {
 		i := 1
 		response := ""
@@ -26,5 +30,5 @@ func main() {
 
 	http.HandleFunc("/api/multiplication99", handler)
 	log.Println("Listing for :" + port)
-	log.Fatal(http.ListenAndServe(port, nil))
+	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
