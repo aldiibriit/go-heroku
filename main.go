@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	port := "9000"
+	port := ":9000"
 	handler := func(w http.ResponseWriter, req *http.Request) {
 		i := 1
 		response := ""
@@ -26,5 +26,5 @@ func main() {
 
 	http.HandleFunc("/api/multiplication99", handler)
 	log.Println("Listing for :" + port)
-	log.Fatal(http.ListenAndServe(":"+port, nil))
+	log.Fatal(http.ListenAndServe(port, nil))
 }
