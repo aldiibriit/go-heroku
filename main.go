@@ -13,7 +13,7 @@ func main() {
 		i := 1
 		response := ""
 		for {
-			if i > 10 {
+			if i > 99 {
 				break
 			}
 			multiplication := `99 x ` + strconv.Itoa(i) + ` = ` + strconv.Itoa(99*i) + ``
